@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packagerversion="1.4.1" version="2.0" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>sfMediaLibraryPlugin</name>
+ <channel>pear.symfony-project.com</channel>
+ <summary>Asset management plugin</summary>
+ <description>The sfMediaLibraryPlugin provides an easy-to-use interface to manage web assets (images, PDF documents, Flash objects, and so on). It also provides an extension to tinyMCE so that the media inclusion feature of rich text editors uses the assets uploaded through the plugin's module.</description>
+ <lead>
+  <name>François Zaninotto</name>
+  <user>fzaninotto</user>
+  <email>francois.zaninotto@symfony-project.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2007-04-13</date>
+ <version>
+   <release>0.8.0</release>
+   <api>0.8.0</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+ <license uri="http://www.symfony-project.com/license">MIT license</license>
+ <notes>-</notes>
+ <contents>
+   <dir name="/">
+     <file name="LICENSE" role="data"/>
+     <file name="README" role="data"/>
+     <dir name="lib">
+       <dir name="helper">
+         <file name="sfMediaLibraryHelper.php" role="data"/>
+       </dir>
+     </dir>
+     <dir name="modules">
+       <dir name="sfMediaLibrary">
+         <dir name="actions">
+           <file name="actions.class.php" role="data"/>
+         </dir>
+         <dir name="config">
+           <file name="view.yml" role="data"/>
+         </dir>
+         <dir name="i18n">
+           <file name="sfMediaLibrary.fr.xml" role="data"/>
+         </dir>
+         <dir name="lib">
+           <file name="BasesfMediaLibraryActions.class.php" role="data"/>
+         </dir>
+         <dir name="templates">
+           <file name="choiceSuccess.php" role="data"/>
+           <file name="indexSuccess.php" role="data"/>
+           <file name="renameSuccess.php" role="data"/>
+           <file name="_block.php" role="data"/>
+           <file name="_dirs.php" role="data"/>
+           <file name="_files.php" role="data"/>
+         </dir>
+       </dir>
+     </dir>
+     <dir name="web">
+       <dir name="css">
+         <file name="media.css" role="data"/>
+       </dir>
+       <dir name="images">
+         <file name="archive.png" role="data"/>
+         <file name="bin.png" role="data"/>
+         <file name="delete.png" role="data"/>
+         <file name="doc.png" role="data"/>
+         <file name="edit.png" role="data"/>
+         <file name="filenew.png" role="data"/>
+         <file name="folder.png" role="data"/>
+         <file name="folder_new.png" role="data"/>
+         <file name="folder_open.png" role="data"/>
+         <file name="html.png" role="data"/>
+         <file name="image.png" role="data"/>
+         <file name="pdf.png" role="data"/>
+         <file name="ppt.png" role="data"/>
+         <file name="txt.png" role="data"/>
+         <file name="unknown.png" role="data"/>
+         <file name="up.png" role="data"/>
+         <file name="xls.png" role="data"/>
+       </dir>
+       <dir name="js">
+         <file name="main.js" role="data"/>
+       </dir>
+     </dir>
+   </dir>
+ </contents>
+
+ <dependencies>
+  <required>
+   <php>
+    <min>5.1.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.1</min>
+   </pearinstaller>
+   <package>
+    <name>symfony</name>
+    <channel>pear.symfony-project.com</channel>
+    <min>1.0.0</min>
+    <max>1.1.0</max>
+   </package>
+  </required>
+ </dependencies>
+
+ <phprelease>
+ </phprelease>
+
+ <changelog>
+ </changelog>
+</package>
