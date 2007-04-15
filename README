@@ -68,7 +68,7 @@ The next thing to do is to pass a special JavaScript callback function to the Ti
 
 That's it, the TinyMCE file browser is now the sfMediaLibrary's one.
 
-Tip: For use with an admin generated module, place the `init_media_library()` call in the `_edit_header.php` partial in the `templates/` directory of the module. To define the callback in a `generato.yml`, do as follows:
+Tip: For use with an admin generated module, place the `init_media_library()` call in the `_edit_header.php` partial in the `templates/` directory of the module. To define the callback in a `generator.yml`, do as follows:
 
 {{{
 generator:
