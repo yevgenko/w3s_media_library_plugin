@@ -54,9 +54,9 @@ class BasesfMediaLibraryActions extends sfActions
     $this->files = $infos;
 
     // parent dir
-    $tmp = explode('.', $this->currentDir);
+    $tmp = explode(' ', $this->currentDir);
     array_pop($tmp);
-    $this->parentDir = implode('.', $tmp);
+    $this->parentDir = implode(' ', $tmp);
   }
 
   protected function isImage($ext)
@@ -175,12 +175,12 @@ class BasesfMediaLibraryActions extends sfActions
   
   protected function dot2slash($txt)
   {
-    return preg_replace('#\.+#', '/', $txt);
+    return preg_replace('#[\+\s]+#', '/', $txt);
   }
 
   protected function slash2dot($txt)
   {
-    return preg_replace('#/+#', '.', $txt);
+    return preg_replace('#/+#', '+', $txt);
   }
 
   protected function sanitizeDir($dir)

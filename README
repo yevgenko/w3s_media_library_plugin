@@ -116,6 +116,10 @@ Optionally, you can restrict the choice of possible assets in this input to imag
  
 == Changelog ==
 
+=== 2007-04-16 | 0.8.1 Beta === 
+
+ * francois: Fixed a conflict with URL rewriting rules making folder navigation impossible
+
 === 2007-04-13 | 0.8.0 Beta === 
 
  * francois: Initial release

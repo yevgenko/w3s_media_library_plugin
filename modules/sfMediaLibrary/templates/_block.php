@@ -10,7 +10,7 @@
     'alt' => $name,
     'title' => $name,
     'size' => '64x64',
-  )), 'sfMediaLibrary/'.$action.'?dir='.$current_path.'.'.$name) ?>
+  )), 'sfMediaLibrary/'.$action.'?dir='.$current_path.'+'.$name) ?>
   <?php if (($action !== "index") and $is_file): ?>
     <?php $size = '&nbsp;' ?>
   <?php else: ?>
