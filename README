@@ -42,7 +42,7 @@ The module allows for the upload, renaming and deletion of all types of files (i
 
 You can create, rename and delete subdirectories as well, resulting in a real tree structure that will keep your media assets organized.
 
-The module is fully i18n'ed, and the plugin comes with English and French translations.
+The module is fully i18n'ed, and the plugin comes with English, French, and Spanish translations.
 
 Uploaded assets end up under the `myproject/web/uploads/assets/` directory. This means that when you want to include them in a template with, for instance, an `image_tag()`, you must use an absolute path, as follows:
 
@@ -115,6 +115,10 @@ Optionally, you can restrict the choice of possible assets in this input to imag
  * More translations for the `sfMediaLibrary` module
  
 == Changelog ==
+
+=== Trunk ===
+
+ * Jose.Luis.Di.Biase: Added Spanish translation
 
 === 2007-04-16 | 0.8.1 Beta === 
 
