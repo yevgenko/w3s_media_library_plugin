@@ -50,6 +50,24 @@ Uploaded assets end up under the `myproject/web/uploads/assets/` directory. This
 <?php echo image_tag('/uploads/assets/path_to_asset.suffix') ?>
 }}}
 
+== Interface with the `sfThumbnailPlugin` ==
+
+If the [wiki:sfThumbnailPlugin] is installed in your project, `sfMediaLibrary` will automatically use it to create thumbnail images of the images you upload. To deactivate this behavior, change the following setting in the `app.yml`:
+
+{{{
+all:
+  sfMediaLibrary:
+    use_thumbnails: true
+}}}
+
+By default, thumbnail images are stored under a `thumbnail/` subdirectory of the image directory. You can change the name of this directory through another setting of the `app.yml`:
+
+{{{
+all:
+  sfMediaLibrary:
+    thumbnails_dir: thumbnail
+}}}
+
 == Using the media library with TinyMCE ==
 
 If you want to use the sfMediaLibrary plugin as a replacement for tinyMCE's file browser for image insertion, you must first initiate the plugin with a helper in the template:
@@ -107,7 +125,6 @@ Optionally, you can restrict the choice of possible assets in this input to imag
 == TODO ==
 
  * Add screenshots to the wiki description
- * Use [wiki:sfThumbnailPlugin] when available
  * Improve CSS and design
  * Improve compatibility
  * Allow to move an asset to another directory
@@ -118,6 +135,7 @@ Optionally, you can restrict the choice of possible assets in this input to imag
 
 === Trunk ===
 
+ * francois: Use [wiki:sfThumbnailPlugin] when available
  * Jose.Luis.Di.Biase: Added Spanish translation
 
 === 2007-04-16 | 0.8.1 Beta === 
