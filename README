@@ -8,6 +8,10 @@ This plug-in consists of:
  - one helper group
  - one JavaScript script
  
+== Screenshot ==
+
+[[Image(sfMediaLibrary.png)]]
+
 == Installation ==
 
 To install the plugin for a symfony project, the usual process is to use the symfony command line:
@@ -135,6 +139,7 @@ Optionally, you can restrict the choice of possible assets in this input to imag
 
 === Trunk ===
 
+ * francois: Fixed error with i18n helper
  * francois: Use [wiki:sfThumbnailPlugin] when available
  * Jose.Luis.Di.Biase: Added Spanish translation
 

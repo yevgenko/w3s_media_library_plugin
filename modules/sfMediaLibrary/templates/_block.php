@@ -57,14 +57,14 @@
         <?php echo input_hidden_tag('type', $type) ?>
         <?php echo input_hidden_tag('count', $count) ?>
         <?php echo input_tag('new_name', $name) ?>
-        <?php echo submit_to_remote('rename', __('Rename', null, 'sfMediaLibrary'), array(
+        <?php echo submit_to_remote('rename', __('Rename', array(), 'sfMediaLibrary'), array(
           'url' => 'sfMediaLibrary/rename',
           'update' => 'block_'.$count,
           'script'=> true,
           'before' => visual_effect('opacity', 'block_'.$count, array('duration' => '0.5', 'from' => '1.0', 'to' => '0.3')),
           'complete' => visual_effect('opacity', 'block_'.$count, array('duration' => '0.5', 'from' => '0.3', 'to' => '1.0')),
           ),'class=sf_asset_action_rename')?>
-          <?php echo button_to_function(__('Cancel', null, 'sfMediaLibrary'), "Element.hide('edit_".$count."');Element.show('view_".$count."')") ?>
+          <?php echo button_to_function(__('Cancel', array(), 'sfMediaLibrary'), "Element.hide('edit_".$count."');Element.show('view_".$count."')") ?>
       </form>
     </div>
     <?php echo javascript_tag("
@@ -73,11 +73,11 @@
     <div style="text-align:right">
     <?php echo $size ?>
     <?php echo link_to(image_tag('/sfMediaLibraryPlugin/images/delete.png', array(
-      'alt' => __('Delete', null, 'sfMediaLibrary'),
-      'title' => __('Delete', null, 'sfMediaLibrary'),
+      'alt' => __('Delete', array(), 'sfMediaLibrary'),
+      'title' => __('Delete', array(), 'sfMediaLibrary'),
       'align' => 'absmiddle',
     )), 'sfMediaLibrary/'.$delete.'?name='.$name.'&current_path='.$current_path, array(
-      'confirm' => __('Are you sure to want to delete this '.$type.'?', null, 'sfMediaLibrary')
+      'confirm' => __('Are you sure to want to delete this '.$type.'?', array(), 'sfMediaLibrary')
     )) ?>
     </div>
   <?php endif; ?>

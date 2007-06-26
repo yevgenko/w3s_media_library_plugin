@@ -12,16 +12,16 @@
     <?php echo input_hidden_tag('current_dir', $currentDir) ?>
     <fieldset>
       <div class="form-row">
-        <?php echo label_for('file', __('Add a file:', null, 'sfMediaLibrary'), '') ?>
+        <?php echo label_for('file', __('Add a file:', array(), 'sfMediaLibrary'), '') ?>
         <div class="content"><?php echo input_file_tag('file') ?></div>
       </div>
     </fieldset>
   
     <ul class="sf_asset_actions">
-      <li><?php echo submit_tag(__('Add', null, 'sfMediaLibrary'), array (
+      <li><?php echo submit_tag(__('Add', array(), 'sfMediaLibrary'), array (
         'name' => 'add',
         'class' => 'sf_asset_action_add_file',
-        'onclick' => "if($('file').value=='') { alert('".__('Please choose a file first', null, 'sfMediaLibrary')."');return false; }",
+        'onclick' => "if($('file').value=='') { alert('".__('Please choose a file first', array(), 'sfMediaLibrary')."');return false; }",
       )) ?></li>
     </ul>
   
@@ -31,16 +31,16 @@
     <?php echo input_hidden_tag('current_dir', $currentDir) ?>
     <fieldset>
       <div class="form-row">
-        <?php echo label_for('dir', __('Create a dir:', null, 'sfMediaLibrary'), '') ?>
+        <?php echo label_for('dir', __('Create a dir:', array(), 'sfMediaLibrary'), '') ?>
         <div class="content"><?php echo input_tag('name', null, 'size=15 id=dir') ?></div>
       </div>
     </fieldset>
   
     <ul class="sf_asset_actions">
-      <li><?php echo submit_tag(__('Create', null, 'sfMediaLibrary'), array (
+      <li><?php echo submit_tag(__('Create', array(), 'sfMediaLibrary'), array (
         'name' => 'create',
         'class' => 'sf_asset_action_add_folder',
-        'onclick' => "if($('dir').value=='') { alert('".__('Please enter a directory name first', null, 'sfMediaLibrary')."');return false; }",
+        'onclick' => "if($('dir').value=='') { alert('".__('Please enter a directory name first', array(), 'sfMediaLibrary')."');return false; }",
       )) ?></li>
     </ul>
   
