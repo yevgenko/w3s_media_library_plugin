@@ -32,7 +32,7 @@ class BasesfMediaLibraryActions extends sfActions
     $currentDir = $this->dot2slash($this->getRequestParameter('dir'));
     $this->currentDir = $this->getRequestParameter('dir');
     $this->current_dir_slash = $currentDir . '/';
-    $this->webAbsCurrentDir = '/'.sfConfig::get('sf_upload_dir_name').'/assets'.$currentDir;
+    $this->webAbsCurrentDir = $this->getRequest()->getRelativeUrlRoot().'/'.sfConfig::get('sf_upload_dir_name').'/assets'.$currentDir;
     $this->absCurrentDir = sfConfig::get('sf_upload_dir').'/assets/'.$currentDir;
 
     $this->forward404Unless(is_dir($this->absCurrentDir));

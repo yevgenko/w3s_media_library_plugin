@@ -139,6 +139,7 @@ Optionally, you can restrict the choice of possible assets in this input to imag
 
 === Trunk ===
 
+ * francois: Fixed Asset URL incorrect when using sandbox
  * francois: Fixed error with i18n helper
  * francois: Use [wiki:sfThumbnailPlugin] when available
  * Jose.Luis.Di.Biase: Added Spanish translation
