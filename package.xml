@@ -10,10 +10,10 @@
   <email>francois.zaninotto@symfony-project.com</email>
   <active>yes</active>
  </lead>
- <date>2007-04-16</date>
+ <date>2007-07-10</date>
  <version>
-   <release>0.8.1</release>
-   <api>0.8.1</api>
+   <release>0.8.2</release>
+   <api>0.8.2</api>
  </version>
  <stability>
   <release>beta</release>
@@ -39,7 +39,9 @@
            <file name="view.yml" role="data"/>
          </dir>
          <dir name="i18n">
+           <file name="sfMediaLibrary.es.xml" role="data"/>
            <file name="sfMediaLibrary.fr.xml" role="data"/>
+           <file name="sfMediaLibrary.pt_BR.xml" role="data"/>
          </dir>
          <dir name="lib">
            <file name="BasesfMediaLibraryActions.class.php" role="data"/>
