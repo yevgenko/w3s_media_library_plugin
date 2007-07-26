@@ -17,21 +17,23 @@
  */
 class BasesfMediaLibraryActions extends sfActions
 {
+  protected
+    $useThumbnails = false;
+
   public function preExecute()
   {
-    $this->use_thumbnails = false;
-    if(sfConfig::get('app_sfMediaLibrary_use_thumbnails', true) && class_exists('sfThumbnail'))
+    if (sfConfig::get('app_sfMediaLibrary_useThumbnails', true) && class_exists('sfThumbnail'))
     {
-      $this->use_thumbnails = true;
+      $this->useThumbnails = true;
       $this->thumbnails_dir = sfConfig::get('app_sfMediaLibrary_thumbnails_dir', 'thumbnail');
-    } 
+    }
   }
-  
+
   public function executeIndex()
   {
     $currentDir = $this->dot2slash($this->getRequestParameter('dir'));
     $this->currentDir = $this->getRequestParameter('dir');
-    $this->current_dir_slash = $currentDir . '/';
+    $this->current_dir_slash = $currentDir.'/';
     $this->webAbsCurrentDir = $this->getRequest()->getRelativeUrlRoot().'/'.sfConfig::get('sf_upload_dir_name').'/assets'.$currentDir;
     $this->absCurrentDir = sfConfig::get('sf_upload_dir').'/assets/'.$currentDir;
 
@@ -39,21 +41,21 @@ class BasesfMediaLibraryActions extends sfActions
 
     // directories
     $dirsQuery = sfFinder::type('dir')->maxdepth(0)->prune('.*')->discard('.*')->relative();
-    if($this->use_thumbnails)
+    if ($this->useThumbnails)
     {
       $dirsQuery = $dirsQuery->discard($this->thumbnails_dir);
     }
-    $dirs  = $dirsQuery->in($this->absCurrentDir);
+    $dirs = $dirsQuery->in($this->absCurrentDir);
     sort($dirs);
     $this->dirs = $dirs;
-    
+
     // files, with stats
     $files = sfFinder::type('file')->maxdepth(0)->prune('.*')->discard('.*')->relative()->in($this->absCurrentDir);
     sort($files);
     $infos = array();
     foreach ($files as $file)
     {
-      $ext  = substr($file, strpos($file, '.') - strlen($file) + 1);
+      $ext = substr($file, strpos($file, '.') - strlen($file) + 1);
       if (!$this->getRequestParameter('images_only') || $this->isImage($ext))
       {
         $infos[$file] = $this->getInfo($file);
@@ -102,8 +104,8 @@ class BasesfMediaLibraryActions extends sfActions
     }
 
     @rename($absCurrentDir.'/'.$name, $absCurrentDir.'/'.$new_name);
-    
-    if($this->use_thumbnails && ($type === 'file') && file_exists($absCurrentDir.'/'.$this->thumbnails_dir.'/'.$name))
+
+    if ($this->useThumbnails && ($type === 'file') && file_exists($absCurrentDir.'/'.$this->thumbnails_dir.'/'.$name))
     {
       @rename($absCurrentDir.'/'.$this->thumbnails_dir.'/'.$name, $absCurrentDir.'/'.$this->thumbnails_dir.'/'.$new_name);
     }
@@ -124,7 +126,7 @@ class BasesfMediaLibraryActions extends sfActions
       $this->name = $name;
       $this->info = $this->getInfo($name);
     }
-    
+
     $this->type = $type;
   }
 
@@ -134,9 +136,9 @@ class BasesfMediaLibraryActions extends sfActions
     $info['ext']  = substr($filename, strpos($filename, '.') - strlen($filename) + 1);
     $stats = stat($this->absCurrentDir.'/'.$filename);
     $info['size'] = $stats['size'];
-    if($this->isImage($info['ext']))
+    if ($this->isImage($info['ext']))
     {
-      if($this->use_thumbnails && is_readable(sfConfig::get('sf_web_dir').$this->webAbsCurrentDir.'/'.$this->thumbnails_dir.'/'.$filename))
+      if ($this->useThumbnails && is_readable(sfConfig::get('sf_web_dir').$this->webAbsCurrentDir.'/'.$this->thumbnails_dir.'/'.$filename))
       {
         $info['icon'] = $this->webAbsCurrentDir.'/'.$this->thumbnails_dir.'/'.$filename;
         $info['size'] = 0;
@@ -148,7 +150,7 @@ class BasesfMediaLibraryActions extends sfActions
     }
     else
     {
-      if(is_readable(sfConfig::get('sf_web_dir').'/sfMediaLibraryPlugin/images/'.$info['ext'].'.png'))
+      if (is_readable(sfConfig::get('sf_web_dir').'/sfMediaLibraryPlugin/images/'.$info['ext'].'.png'))
       {
         $info['icon'] = '/sfMediaLibraryPlugin/images/'.$info['ext'].'.png';
       }
@@ -157,7 +159,7 @@ class BasesfMediaLibraryActions extends sfActions
         $info['icon'] = '/sfMediaLibraryPlugin/images/unknown.png';
       }
     }
-    
+
     return $info;
   }
 
@@ -171,9 +173,9 @@ class BasesfMediaLibraryActions extends sfActions
 
     $fileName = $this->sanitizeFile($this->getRequest()->getFileName('file'));
 
-    if($this->use_thumbnails)
+    if ($this->isImage($info['ext']) && $this->useThumbnails)
     {
-      if(!is_dir($absCurrentDir.'/'.$this->thumbnails_dir))
+      if (!is_dir($absCurrentDir.'/'.$this->thumbnails_dir))
       {
         // If the thumbnails directory doesn't exist, create it now
         $old = umask(0000);
@@ -198,11 +200,11 @@ class BasesfMediaLibraryActions extends sfActions
     $this->forward404Unless(is_readable($absCurrentFile));
 
     unlink($absCurrentFile);
-    
-    if($this->use_thumbnails)
+
+    if ($this->useThumbnails)
     {
       $absThumbnailFile = sfConfig::get('sf_upload_dir').'/assets/'.$currentDir.'/'.$this->thumbnails_dir.'/'.$currentFile;
-      if(is_readable($absThumbnailFile))
+      if (is_readable($absThumbnailFile))
       {
         unlink($absThumbnailFile);
       }
@@ -219,7 +221,7 @@ class BasesfMediaLibraryActions extends sfActions
 
     $old = umask(0000);
     @mkdir($absCurrentDir, 0777);
-    if($this->use_thumbnails)
+    if ($this->useThumbnails)
     {
       @mkdir($absCurrentDir.'/'.$this->thumbnails_dir, 0777);
     }
@@ -235,16 +237,16 @@ class BasesfMediaLibraryActions extends sfActions
 
     $this->forward404Unless(is_dir($absCurrentDir));
 
-    if($this->use_thumbnails && is_readable($absCurrentDir.'/'.$this->thumbnails_dir))
+    if($this->useThumbnails && is_readable($absCurrentDir.'/'.$this->thumbnails_dir))
     {
       rmdir($absCurrentDir.'/'.$this->thumbnails_dir);
     }
-    
+
     rmdir($absCurrentDir);
 
     $this->redirect('sfMediaLibrary/index?dir='.$this->getRequestParameter('current_path'));
   }
-  
+
   protected function dot2slash($txt)
   {
     return preg_replace('#[\+\s]+#', '/', $txt);

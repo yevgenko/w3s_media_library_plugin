@@ -139,6 +139,8 @@ Optionally, you can restrict the choice of possible assets in this input to imag
 
 === Trunk ===
 
+ * fabien: Fixed thumbnail creation for non image media (#1981)
+
 === 2007-07-10 | 0.8.2 Beta === 
 
  * francois: Fixed Asset URL incorrect when using sandbox
