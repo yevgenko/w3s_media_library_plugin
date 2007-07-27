@@ -18,15 +18,10 @@
   <?php endif; ?>
   <?php $delete = 'rmdir' ?>
 <?php else: ?>
-  <?php if ($info['size'] < 4000): ?>
-    <?php $size2 = array() ?>
-  <?php else: ?>
-    <?php $size2 = array('height' => '64') ?>
-  <?php endif; ?>
   <?php $thumbnail = image_tag($info['icon'], array(
     'alt' => $name,
     'title' => $name,
-    ) + $size2) ?>
+    ) + ($info['thumbnail'] ? array() : array('height' => '64'))) ?>
   <?php if($action === "index"): ?>
     <?php echo content_tag('a', $thumbnail, array(
       'href' => $web_abs_current_path.'/'.$name,
