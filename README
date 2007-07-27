@@ -139,6 +139,7 @@ Optionally, you can restrict the choice of possible assets in this input to imag
 
 === Trunk ===
 
+ * fabien: Added a new object_input_asset_tag() helper (to be used in the admin generator for example)
  * fabien: Fixed images that have a size to 0 when using thumbnails
  * fabien: Fixed thumbnail creation for non image media (#1981)
 

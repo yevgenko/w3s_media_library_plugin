@@ -3,30 +3,37 @@
 function init_media_library()
 {
   sfContext::getInstance()->getResponse()->addJavascript('/sfMediaLibraryPlugin/js/main', 'last');
-  $url = url_for('sfMediaLibrary/choice');
-  $js = 'sfMediaLibrary.init(\''.$url.'\')';
-  
-  return javascript_tag($js);
+
+  return javascript_tag('sfMediaLibrary.init(\''.url_for('sfMediaLibrary/choice').'\')');
+}
+
+function object_input_asset_tag($object, $method, $options = array())
+{
+  $options = _parse_attributes($options);
+  $name    = _convert_method_to_name($method, $options);
+  $value   = _get_object_value($object, $method);
+
+  return input_asset_tag($name, $value, $options);
 }
 
 function input_asset_tag($name, $value, $options = array())
 {
   use_helper('Javascript');
-  
+
   $type = 'all';
   if (isset($options['images_only']))
   {
     $type = 'image';
     unset($options['images_only']);
   }
-  
+
   $form_name = 'this.previousSibling.previousSibling.form.name';
   if (isset($options['form_name']))
   {
     $form_name = '\''.$options['form_name'].'\'';
     unset($options['form_name']);
   }
-    
+
   $html = '';
 
   if (is_file(sfConfig::get('sf_web_dir').$value))
