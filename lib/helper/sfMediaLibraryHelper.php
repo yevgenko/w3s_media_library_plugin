@@ -61,12 +61,3 @@ function input_asset_tag($name, $value, $options = array())
 
   return $html;
 }
-
-function object_input_asset_tag($object, $method, $options = array(), $default_value = null)
-{
-	$options = _parse_attributes($options);
-
-  $value = _get_object_value($object, $method, $default_value);
-
-  return input_asset_tag(_convert_method_to_name($method, $options), $value, $options);
-}
