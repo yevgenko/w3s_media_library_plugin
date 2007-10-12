@@ -90,7 +90,7 @@ The next thing to do is to pass a special JavaScript callback function to the Ti
   )); ?>
 }}}
 
-That's it, the TinyMCE file browser is now the sfMediaLibrary's one.
+That's it, the TinyMCE file browser is now the sfMediaLibrary's one. I'm not sure if this is the case for everyone, but I had to add the advimage plugin to the list of tinymce plugins for it to fully work without javascript errors.
 
 Tip: For use with an admin generated module, place the `init_media_library()` call in the `_edit_header.php` partial in the `templates/` directory of the module. To define the callback in a `generator.yml`, do as follows:
 
