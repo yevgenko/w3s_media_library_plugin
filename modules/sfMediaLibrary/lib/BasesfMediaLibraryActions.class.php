@@ -18,16 +18,21 @@
 class BasesfMediaLibraryActions extends sfActions
 {
   protected
+    $uploadDir     = '',
+    $uploadDirName = '',
     $useThumbnails = false,
     $thumbnailsDir = '';
 
   public function preExecute()
   {
-    if (sfConfig::get('app_sfMediaLibrary_useThumbnails', true) && class_exists('sfThumbnail'))
+    if (sfConfig::get('app_sfMediaLibrary_use_thumbnails', true) && class_exists('sfThumbnail'))
     {
       $this->useThumbnails = true;
-      $this->thumbnailsDir = sfConfig::get('app_sfMediaLibrary_thumbnailsDir', 'thumbnail');
+      $this->thumbnailsDir = sfConfig::get('app_sfMediaLibrary_thumbnails_dir', 'thumbnail');
     }
+
+    $this->uploadDirName = sfConfig::get('app_sfMediaLibrary_upload_dir', sfConfig::get('sf_upload_dir_name').'/assets');
+    $this->uploadDir     = sfConfig::get('sf_web_dir').'/'.$this->uploadDirName;
   }
 
   public function executeIndex()
@@ -35,8 +40,8 @@ class BasesfMediaLibraryActions extends sfActions
     $currentDir = $this->dot2slash($this->getRequestParameter('dir'));
     $this->currentDir = $this->getRequestParameter('dir');
     $this->current_dir_slash = $currentDir.'/';
-    $this->webAbsCurrentDir = $this->getRequest()->getRelativeUrlRoot().'/'.sfConfig::get('sf_upload_dir_name').'/assets'.$currentDir;
-    $this->absCurrentDir = sfConfig::get('sf_upload_dir').'/assets/'.$currentDir;
+    $this->webAbsCurrentDir = $this->getRequest()->getRelativeUrlRoot().'/'.$this->uploadDirName.'/'.$currentDir;
+    $this->absCurrentDir = $this->uploadDir.'/'.$currentDir;
 
     $this->forward404Unless(is_dir($this->absCurrentDir));
 
@@ -86,8 +91,8 @@ class BasesfMediaLibraryActions extends sfActions
     $this->currentDir = $this->getRequestParameter('current_path');
     $type = $this->getRequestParameter('type');
     $this->count = $this->getRequestParameter('count');
-    $this->webAbsCurrentDir = '/'.sfConfig::get('sf_upload_dir_name').'/assets/'.$currentDir;
-    $absCurrentDir = sfConfig::get('sf_upload_dir').'/assets/'.$currentDir;
+    $this->webAbsCurrentDir = '/'.$this->uploadDirName.'/'.$currentDir;
+    $absCurrentDir = $this->uploadDir.'/'.$currentDir;
     
     $this->forward404Unless(is_dir($absCurrentDir));
 
@@ -168,8 +173,8 @@ class BasesfMediaLibraryActions extends sfActions
   public function executeUpload()
   {
     $currentDir = $this->dot2slash($this->getRequestParameter('current_dir'));
-    $webAbsCurrentDir = '/'.sfConfig::get('sf_upload_dir_name').'/assets/'.$currentDir;
-    $absCurrentDir = sfConfig::get('sf_upload_dir').'/assets/'.$currentDir;
+    $webAbsCurrentDir = '/'.$this->uploadDirName.'/'.$currentDir;
+    $absCurrentDir = $this->uploadDir.'/'.$currentDir;
 
     $this->forward404Unless(is_dir($absCurrentDir));
 
@@ -198,7 +203,7 @@ class BasesfMediaLibraryActions extends sfActions
   {
     $currentDir = $this->dot2slash($this->getRequestParameter('current_path'));
     $currentFile = $this->getRequestParameter('name');
-    $absCurrentFile = sfConfig::get('sf_upload_dir').'/assets/'.$currentDir.'/'.$currentFile;
+    $absCurrentFile = $this->uploadDir.'/'.$currentDir.'/'.$currentFile;
 
     $this->forward404Unless(is_readable($absCurrentFile));
 
@@ -206,7 +211,7 @@ class BasesfMediaLibraryActions extends sfActions
 
     if ($this->useThumbnails)
     {
-      $absThumbnailFile = sfConfig::get('sf_upload_dir').'/assets/'.$currentDir.'/'.$this->thumbnailsDir.'/'.$currentFile;
+      $absThumbnailFile = $this->uploadDir.'/'.$currentDir.'/'.$this->thumbnailsDir.'/'.$currentFile;
       if (is_readable($absThumbnailFile))
       {
         unlink($absThumbnailFile);
@@ -220,7 +225,7 @@ class BasesfMediaLibraryActions extends sfActions
   {
     $currentDir = $this->dot2slash($this->getRequestParameter('current_dir'));
     $dirName = $this->sanitizeDir($this->getRequestParameter('name'));
-    $absCurrentDir = sfConfig::get('sf_upload_dir').'/assets/'.(empty($currentDir) ? '' : $currentDir.'/').$dirName;
+    $absCurrentDir = $this->uploadDir.'/'.(empty($currentDir) ? '' : $currentDir.'/').$dirName;
 
     $old = umask(0000);
     @mkdir($absCurrentDir, 0777);
@@ -236,7 +241,7 @@ class BasesfMediaLibraryActions extends sfActions
   public function executeRmdir()
   {
     $currentDir = $this->dot2slash('.'.$this->getRequestParameter('current_path'));
-    $absCurrentDir = sfConfig::get('sf_upload_dir').'/assets/'.$currentDir.'/'.$this->getRequestParameter('name');
+    $absCurrentDir = $this->uploadDir.'/'.$currentDir.'/'.$this->getRequestParameter('name');
 
     $this->forward404Unless(is_dir($absCurrentDir));
 

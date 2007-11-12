@@ -6,12 +6,14 @@
   </div>
 <?php endif; ?>
 <?php $count = 0; foreach ($dirs as $dir): $count++ ?>
-  <div id="block_<?php echo $count ?>" class="assetImage"><?php include_partial('sfMediaLibrary/block', array(
-      'name' => $dir,
+  <div id="block_<?php echo $count ?>" class="assetImage">
+    <?php include_partial('sfMediaLibrary/block', array(
+      'name'         => $dir,
       'current_path' => $currentDir,
-      'type' => 'folder',
-      'info' => array(),
-      'count' => $count,
-      'is_file' => $is_file,
-    )) ?></div>
+      'type'         => 'folder',
+      'info'         => array(),
+      'count'        => $count,
+      'is_file'      => $is_file,
+    )) ?>
+  </div>
 <?php endforeach; ?>

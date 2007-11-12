@@ -40,6 +40,17 @@ Start using the new module by making a request to:
 http://myproject/frontend_dev.php/sfMediaLibrary
 }}}
 
+By default, all uploaded files are stored in the `uploads/assets` directory under the `web` directory.
+You can customize this directory by changing the `upload_dir` setting in `app.yml` (you must provide a relative path to the `web` directory):
+
+{{{
+all:
+  sfMediaLibrary:
+    upload_dir: media
+}}}
+
+In the above example, uploaded files will be in the `web/media` directory.
+
 == The `sfMediaLibrary` module ==
 
 The module allows for the upload, renaming and deletion of all types of files (image, pdf, spreadsheet, etc). Click on an asset name to rename it, click on the trashcan icon to delete it.
@@ -62,6 +73,7 @@ If the [wiki:sfThumbnailPlugin] is installed in your project, `sfMediaLibrary` w
 all:
   sfMediaLibrary:
     use_thumbnails: true
+    thumbnails_dir: thumbnails
 }}}
 
 By default, thumbnail images are stored under a `thumbnail/` subdirectory of the image directory. You can change the name of this directory through another setting of the `app.yml`:
@@ -134,11 +146,15 @@ Optionally, you can restrict the choice of possible assets in this input to imag
  * Allow to move an asset to another directory
  * Make path clickable to go up in the tree structure
  * More translations for the `sfMediaLibrary` module
- 
+
 == Changelog ==
 
 === Trunk ===
 
+ * fabien: Cleaned up a bit the templates
+ * fabien: Added an example of thumbnails_dir setting
+ * fabien: Fixed use_thumbnails setting as per the documentation
+ * fabien: Added a new setting to override the upload directory
  * fabien: Added a new object_input_asset_tag() helper (to be used in the admin generator for example)
  * fabien: Fixed images that have a size to 0 when using thumbnails
  * fabien: Fixed thumbnail creation for non image media (#1981)
