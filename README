@@ -151,6 +151,7 @@ Optionally, you can restrict the choice of possible assets in this input to imag
 
 === Trunk ===
 
+ * fabien: Added it, de and nl translations (#2036, #2055, #2194)
  * fabien: Cleaned up a bit the templates
  * fabien: Added an example of thumbnails_dir setting
  * fabien: Fixed use_thumbnails setting as per the documentation
