@@ -151,6 +151,9 @@ Optionally, you can restrict the choice of possible assets in this input to imag
 
 === Trunk ===
 
+
+=== 2007-11-12 | 0.9.0 Beta === 
+
  * fabien: fixed input_asset_tag requires i18n helper (#2171)
  * fabien: Added it, de and nl translations (#2036, #2055, #2194)
  * fabien: Cleaned up a bit the templates
