@@ -18,7 +18,7 @@ function object_input_asset_tag($object, $method, $options = array())
 
 function input_asset_tag($name, $value, $options = array())
 {
-  use_helper('Javascript');
+  use_helper('Javascript', 'I18N');
 
   $type = 'all';
   if (isset($options['images_only']))
