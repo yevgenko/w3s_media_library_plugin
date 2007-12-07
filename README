@@ -140,7 +140,6 @@ Optionally, you can restrict the choice of possible assets in this input to imag
 
 == TODO ==
 
- * Add screenshots to the wiki description
  * Improve CSS and design
  * Improve compatibility
  * Allow to move an asset to another directory
@@ -151,6 +150,7 @@ Optionally, you can restrict the choice of possible assets in this input to imag
 
 === Trunk ===
 
+ * fabien: fixed JS breaking with Adblock/Filterset.G (#2625)
 
 === 2007-11-12 | 0.9.0 Beta === 
 

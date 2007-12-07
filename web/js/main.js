@@ -34,7 +34,13 @@ sfMediaLibrary_Engine.prototype = {
       tinyMCE.setWindowArg('editor_id', this.fileBrowserWindowArg);
       if (this.fileBrowserType == 'image')
       {
-        this.fileBrowserWin.showPreviewImage(url);
+        try
+        {
+          this.fileBrowserWin.showPreviewImage(url);
+        }
+        catch (ex)
+        {
+        }
       }
     }
     this.fileBrowserWin.document.forms[this.fileBrowserFormName].elements[this.fileBrowserFieldName].value = url;
