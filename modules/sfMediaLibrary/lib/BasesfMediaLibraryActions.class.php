@@ -31,7 +31,7 @@ class BasesfMediaLibraryActions extends sfActions
       $this->thumbnailsDir = sfConfig::get('app_sfMediaLibrary_thumbnails_dir', 'thumbnail');
     }
 
-    $this->uploadDirName = sfConfig::get('app_sfMediaLibrary_upload_dir', sfConfig::get('sf_upload_dir_name').'/assets');
+    $this->uploadDirName = sfConfig::get('app_sfMediaLibrary_upload_dir', str_replace(sfConfig::get('sf_web_dir'), '', sfConfig::get('sf_upload_dir')).'/assets');
     $this->uploadDir     = sfConfig::get('sf_web_dir').'/'.$this->uploadDirName;
   }
 
