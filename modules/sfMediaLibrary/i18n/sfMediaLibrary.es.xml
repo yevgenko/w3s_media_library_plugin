@@ -1,22 +1,22 @@
 <?xml version="1.0" ?>
 <xliff version="1.0">
-  <file orginal="global" source-language="en_US" datatype="plaintext" date="2004-12-28T18:10:19Z">
+  <file orginal="global" source-language="en_US" datatype="plaintext" date="2008-05-26">
     <body>
       <trans-unit id="1">
         <source>Add</source>
-        <target>Agregar</target>
+        <target>Añadir</target>
       </trans-unit>
       <trans-unit id="2">
         <source>Media library (%1%)</source>
-        <target>Biblioteca de contenidos (%1%)</target>
+        <target>Libreria multimedia (%1%)</target>
       </trans-unit>
       <trans-unit id="3">
         <source>Add a file:</source>
-        <target>Agregar un archivo</target>
+        <target>Añadir fichero</target>
       </trans-unit>
       <trans-unit id="4">
         <source>Create a dir:</source>
-        <target>Crear una carpeta</target>
+        <target>Crear carpeta</target>
       </trans-unit>
       <trans-unit id="5">
         <source>Create</source>
@@ -24,7 +24,7 @@
       </trans-unit>
       <trans-unit id="6">
         <source>Rename in process...</source>
-        <target>Renombrar en proceso...</target>
+        <target>Renombrando...</target>
       </trans-unit>
       <trans-unit id="7">
         <source>Cancel</source>
@@ -32,19 +32,19 @@
       </trans-unit>
       <trans-unit id="8">
         <source>Delete</source>
-        <target>Borrar</target>
+        <target>Eliminar</target>
       </trans-unit>
       <trans-unit id="9">
         <source>Click to edit</source>
-        <target>Click para editar</target>
+        <target>Clic para editar</target>
       </trans-unit>
       <trans-unit id="10">
         <source>Are you sure to want to delete this folder?</source>
-        <target>¿Esta seguro que desea borrar esta carpeta?</target>
+        <target>¿Está seguro que desea eliminar esta carpeta?</target>
       </trans-unit>
       <trans-unit id="11">
         <source>Are you sure to want to delete this file?</source>
-        <target>¿Esta seguro que desea borrar este archivo?</target>
+        <target>¿Está seguro que desea eliminar este fichero?</target>
       </trans-unit>
       <trans-unit id="12">
         <source>Rename</source>
@@ -52,12 +52,12 @@
       </trans-unit>
       <trans-unit id="13">
         <source>Please choose a file first</source>
-        <target>Por favor primero elija un archivo</target>
+        <target>Seleccione primero un fichero</target>
       </trans-unit>
       <trans-unit id="14">
         <source>Please enter a directory name first</source>
-        <target>Por favor primero ingrese un nombre para la carpeta</target>
-      </trans-unit>      
+        <target>Introduzca primero el nombre de la capeta</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
