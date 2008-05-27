@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<xliff version="1.0">
+  <file orginal="global" source-language="en_US" datatype="plaintext" date="2004-12-28T18:10:19Z">
+    <body>
+      <trans-unit id="1">
+        <source>Add</source>
+        <target>أضف</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Media library (%1%)</source>
+        <target>(%1%)مكتبة الوسائط</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Add a file:</source>
+        <target>أضف ملفا</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Create a dir:</source>
+        <target>إنشاء دليل</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>Create</source>
+        <target>إنشاء</target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>Rename in process...</source>
+        <target>...في طور إعادة التسمية</target>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>Cancel</source>
+        <target>إلغاء</target>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>Delete</source>
+        <target>حذف</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>Click to edit</source>
+        <target>إضغط للتحرير</target>
+      </trans-unit>
+      <trans-unit id="10">
+        <source>Are you sure to want to delete this folder?</source>
+        <target>هل تريد فعلا حذف هذا الدليل ؟</target>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>Are you sure to want to delete this file?</source>
+        <target>هل تريد فعلا حذف هذا الملف ؟</target>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>Rename</source>
+        <target>إعادة التسمية</target>
+      </trans-unit>
+      <trans-unit id="13">
+        <source>Please choose a file first</source>
+        <target>إبدأ أولا باختيار ملف </target>
+      </trans-unit>
+      <trans-unit id="14">
+        <source>Please enter a directory name first</source>
+        <target>أدخل أولا اسم الدليل </target>
+      </trans-unit>      
+    </body>
+  </file>
+</xliff>
