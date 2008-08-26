@@ -16,16 +16,16 @@
   <email>francois.zaninotto@symfony-project.com</email>
   <active>yes</active>
  </lead>
- <date>2007-11-12</date>
+ <date>2008-08-26</date>
  <version>
-   <release>0.9.0</release>
+   <release>0.9.1</release>
    <api>0.9.0</api>
  </version>
  <stability>
-  <release>beta</release>
-  <api>beta</api>
+  <release>stable</release>
+  <api>stable</api>
  </stability>
- <license uri="http://www.symfony-project.com/license">MIT license</license>
+ <license uri="http://www.symfony-project.org/license">MIT license</license>
  <notes>-</notes>
  <contents>
    <dir name="/">
@@ -45,8 +45,14 @@
            <file name="view.yml" role="data"/>
          </dir>
          <dir name="i18n">
+           <file name="sfMediaLibrary.de.xml" role="data"/>
            <file name="sfMediaLibrary.es.xml" role="data"/>
+           <file name="sfMediaLibrary.fa.xml" role="data"/>
+           <file name="sfMediaLibrary.fi.xml" role="data"/>
            <file name="sfMediaLibrary.fr.xml" role="data"/>
+           <file name="sfMediaLibrary.hu.xml" role="data"/>
+           <file name="sfMediaLibrary.it.xml" role="data"/>
+           <file name="sfMediaLibrary.nl_NL.xml" role="data"/>
            <file name="sfMediaLibrary.pt_BR.xml" role="data"/>
          </dir>
          <dir name="lib">
@@ -105,6 +111,7 @@
     <channel>pear.symfony-project.com</channel>
     <min>1.0.0</min>
     <max>1.1.0</max>
+    <exclude>1.1.0</exclude>
    </package>
   </required>
  </dependencies>
