@@ -195,7 +195,20 @@ class BasesfMediaLibraryActions extends sfActions
       $thumbnail->save($absCurrentDir.'/'.$this->thumbnailsDir.'/'.$filename);
     }
     $this->getRequest()->moveFile('file', $absCurrentDir.'/'.$filename);
-
+    if ($this->getRequestParameter('current_dir')&&($this->getRequestParameter('current_dir')!=''))
+    {
+      $link = 'sfMediaLibrary/choice?dir='.$this->getRequestParameter('current_dir');
+      if ((int)$this->getRequestParameter('images_only') == 1) {
+        $link.= '&images_only=1';
+      }
+    } else {
+      $link = 'sfMediaLibrary/choice';
+      if ((int)$this->getRequestParameter('images_only') == 1) {
+        $link.= '?images_only=1';
+      }
+    }
+    if($this->getRequestParameter('mode') == 'choice')
+      $this->redirect($link);
     $this->redirect('sfMediaLibrary/index?dir='.$this->getRequestParameter('current_dir'));
   }
 
@@ -234,7 +247,20 @@ class BasesfMediaLibraryActions extends sfActions
       @mkdir($absCurrentDir.'/'.$this->thumbnailsDir, 0777);
     }
     umask($old);
-
+    if ($this->getRequestParameter('current_dir')&&($this->getRequestParameter('current_dir')!=''))
+    {
+      $link = 'sfMediaLibrary/choice?dir='.$this->getRequestParameter('current_dir');
+      if ((int)$this->getRequestParameter('images_only') == 1) {
+        $link.= '&images_only=1';
+      }
+    } else {
+      $link = 'sfMediaLibrary/choice';
+      if ((int)$this->getRequestParameter('images_only') == 1) {
+        $link.= '?images_only=1';
+      }
+    }
+    if($this->getRequestParameter('mode') == 'choice')
+      $this->redirect($link);
     $this->redirect('sfMediaLibrary/index?dir='.$this->getRequestParameter('current_dir'));
   }
 

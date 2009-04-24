@@ -27,44 +27,53 @@ sfMediaLibrary_Engine.prototype = {
     this.url = url;
   },
 
-  fileBrowserReturn : function (url)
+  fileBrowserReturn : function (url,PopUp)
   {
-    if(this.isTinyMCE)
+    if (PopUp)
     {
-      tinyMCE.setWindowArg('editor_id', this.fileBrowserWindowArg);
+      var win =PopUp.getWindowArg("window");
+      var input=PopUp.getWindowArg("input");
+      win.document.getElementById(input).value=url;
       if (this.fileBrowserType == 'image')
       {
-        try
+        if (win.ImageDialog.showPreviewImage)
         {
-          this.fileBrowserWin.showPreviewImage(url);
-        }
-        catch (ex)
-        {
+          win.ImageDialog.showPreviewImage(url);
         }
       }
+      PopUp.close();
     }
-    this.fileBrowserWin.document.forms[this.fileBrowserFormName].elements[this.fileBrowserFieldName].value = url;
+    else
+    {
+      this.fileBrowserWin.document.forms[this.fileBrowserFormName].elements[this.fileBrowserFieldName].value = url;
+    }
   },
 
   fileBrowserCallBack : function (field_name, url, type, win)
   {
-    this.isTinyMCE = true;
-    this.fileBrowserWindowArg = tinyMCE.getWindowArg('editor_id');
-    var template = new Array();
-    template['title']  = 'Assets';
+    //Set TinyMCE to true
+    this.isTinyMCE=true;
+    //Store the URL
     var url = this.url;
+    this.fileBrowserType = type;
+    //Check the type of image
     if (type == 'image')
       url += '/images_only/1';
-    template['file']   = url;
-    template['width']  = 550;
-    template['height'] = 600;
-    template['close_previous'] = 'no';
-
-    this.fileBrowserWin = win;
-    this.fileBrowserFormName = 0;
-    this.fileBrowserFieldName = field_name;
-    this.fileBrowserType = type;
-    tinyMCE.openWindow(template, {inline : "yes", scrollbars: 'yes'});
+      tinyMCE.activeEditor.windowManager.open({
+        file: url,
+        title: "Please select a image",
+        width: 640,
+        height: 480,
+        resizable: "yes",
+        inline:    "yes",
+        scrollbars: "yes",
+        close_previous: "yes"
+      },
+      {
+          window : win,
+          input : field_name,
+          mediaLibrary: this
+      });
   },
 
   openWindow : function(options)
