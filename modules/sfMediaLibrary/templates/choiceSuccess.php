@@ -26,15 +26,28 @@
     <?php echo javascript_tag("
     function setFileSrc(src)
     {
-      if (tinyMCEPopup)
+      if (opener)
       {
-        var mediaLibrary=  tinyMCEPopup.getWindowArg(\"mediaLibrary\");
-        mediaLibrary.fileBrowserReturn(src, tinyMCEPopup);
+        opener.document.getElementById('w3s_image_preview').innerHTML = '<img src=\"'+src+'\" \/>';
+        opener.document.getElementById('w3s_ppt_image').value = src;
+        opener.document.getElementById('w3s_ppt_width').value = '';
+        opener.document.getElementById('w3s_ppt_height').value = '';
+        opener.document.getElementById('w3s_ppt_size').value = '';
+        opener.document.getElementById('w3s_overlay').style.display = 'none';
+        window.close();
       }
       else
       {
-        opener.tinyMCEPopup.fileBrowserReturn(src,null);
-        window.close();
+        if (tinyMCEPopup)
+        {
+          var mediaLibrary=  tinyMCEPopup.getWindowArg(\"mediaLibrary\");
+          mediaLibrary.fileBrowserReturn(src, tinyMCEPopup);
+        }
+        else
+        {
+          opener.tinyMCEPopup.fileBrowserReturn(src,null);
+          window.close();
+        }
       }
     }
     ") ?>
