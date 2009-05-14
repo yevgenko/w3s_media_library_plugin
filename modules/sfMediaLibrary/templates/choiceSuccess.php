@@ -3,6 +3,7 @@
   <head>
   </head>
   <body>
+    <script type="text/javascript" src="/w3sCmsPlugin/js/scriptaculous/lib/js/prototype.js"></script>
     <?php use_helper('Javascript', 'I18N') ?>
     <?php
      //Get the path to tinyMCE
@@ -50,6 +51,14 @@
         }
       }
     }
+    function windowClose()
+    {
+      if (opener)
+      {
+        opener.document.getElementById('w3s_overlay').style.display = 'none';
+      }
+    }
+    Event.observe(window, 'unload', windowClose, false);
     ") ?>
     <div id="sf_asset_container">
       <h1><?php echo __('Media library (%1%)', array('%1%' => $current_dir_slash), 'sfMediaLibrary') ?></h1>
