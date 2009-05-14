@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packagerversion="1.4.1" version="2.0" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
- <name>sfMediaLibraryPlugin</name>
+ <name>w3sMediaLibraryPlugin</name>
  <channel>pear.symfony-project.com</channel>
  <summary>Asset management plugin</summary>
- <description>The sfMediaLibraryPlugin provides an easy-to-use interface to manage web assets (images, PDF documents, Flash objects, and so on). It also provides an extension to tinyMCE so that the media inclusion feature of rich text editors uses the assets uploaded through the plugin's module.</description>
+ <description>The w3sMediaLibraryPlugin provides an easy-to-use interface to manage web assets (images, PDF documents, Flash objects, and so on). It also provides an extension to tinyMCE so that the media inclusion feature of rich text editors uses the assets uploaded through the plugin's module.</description>
  <lead>
   <name>Fabien Potencier</name>
   <user>fabpot</user>

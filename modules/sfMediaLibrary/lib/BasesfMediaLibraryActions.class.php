@@ -93,7 +93,7 @@ class BasesfMediaLibraryActions extends sfActions
     $this->count = $this->getRequestParameter('count');
     $this->webAbsCurrentDir = '/'.$this->uploadDirName.'/'.$currentDir;
     $absCurrentDir = $this->uploadDir.'/'.$currentDir;
-    
+
     $this->forward404Unless(is_dir($absCurrentDir));
 
     $name = $this->getRequestParameter('name');
@@ -157,13 +157,13 @@ class BasesfMediaLibraryActions extends sfActions
     }
     else
     {
-      if (is_readable(sfConfig::get('sf_web_dir').'/sfMediaLibraryPlugin/images/'.$info['ext'].'.png'))
+      if (is_readable(sfConfig::get('sf_web_dir').'/w3sMediaLibraryPlugin/images/'.$info['ext'].'.png'))
       {
-        $info['icon'] = '/sfMediaLibraryPlugin/images/'.$info['ext'].'.png';
+        $info['icon'] = '/w3sMediaLibraryPlugin/images/'.$info['ext'].'.png';
       }
       else
       {
-        $info['icon'] = '/sfMediaLibraryPlugin/images/unknown.png';
+        $info['icon'] = '/w3sMediaLibraryPlugin/images/unknown.png';
       }
     }
 

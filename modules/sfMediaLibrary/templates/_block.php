@@ -1,16 +1,20 @@
 <?php $action = $sf_context->getActionName() !== 'choice' ? 'index' : $sf_context->getActionName() ?>
-
+<?php
+if (isset($web_abs_current_path))
+  $web_abs_current_path = str_replace('//','/',trim($web_abs_current_path));
+  $web_abs_current_path = (substr($web_abs_current_path, strlen($web_abs_current_path) - 1, 1) != '/') ? $web_abs_current_path . '/' : $web_abs_current_path;
+?>
 <div class="thumbnails">
   <?php if ($type == 'folder'): ?>
-    <?php echo link_to(image_tag('/sfMediaLibraryPlugin/images/folder', array('alt' => $name, 'title' => $name, 'size' => '64x64')), 'sfMediaLibrary/'.$action.'?dir='.$current_path.'+'.$name) ?>
+    <?php echo link_to(image_tag('/w3sMediaLibraryPlugin/images/folder', array('alt' => $name, 'title' => $name, 'size' => '64x64')), 'sfMediaLibrary/'.$action.'?dir='.$current_path.'+'.$name) ?>
     <?php $size = $action !== 'index' and $is_file ? '&nbsp;' : '' ?>
     <?php $delete = 'rmdir' ?>
   <?php else: ?>
-    <?php $thumbnail = image_tag($info['icon'], array('alt' => $name, 'title' => $name) + ($info['thumbnail'] ? array() : array('height' => '64'))) ?>
+    <?php $thumbnail = image_tag(str_replace('//','/',$info['icon']), array('alt' => $name, 'title' => $name) + ($info['thumbnail'] ? array() : array('height' => '64'))) ?>
     <?php if ($action == 'index'): ?>
-      <?php echo content_tag('a', $thumbnail, array('href' => $web_abs_current_path.'/'.$name, 'target' => '_blank')) ?>
+      <?php echo content_tag('a', $thumbnail, array('href' => $web_abs_current_path.$name, 'target' => '_blank')) ?>
     <?php else: ?>
-      <?php echo link_to_function($thumbnail, "setFileSrc('".$web_abs_current_path.'/'.$name."')") ?>
+      <?php echo link_to_function($thumbnail, "setFileSrc('".$web_abs_current_path.$name."')") ?>
     <?php endif; ?>
 
     <?php $size = sprintf('&nbsp;&nbsp;[%d %s]', $info['size'] < 1000 ? $info['size'] : $info['size'] / 1000, $info['size'] < 1000 ? 'o' : 'Ko') ?>
@@ -40,7 +44,7 @@
     <?php echo javascript_tag("Element.hide('edit_".$count."');") ?>
     <div style="text-align:right">
       <?php echo $size ?>
-      <?php echo link_to(image_tag('/sfMediaLibraryPlugin/images/delete.png', array(
+      <?php echo link_to(image_tag('/w3sMediaLibraryPlugin/images/delete.png', array(
         'alt'   => __('Delete', array(), 'sfMediaLibrary'),
         'title' => __('Delete', array(), 'sfMediaLibrary'),
         'align' => 'absmiddle',

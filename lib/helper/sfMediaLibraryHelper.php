@@ -2,7 +2,7 @@
 
 function init_media_library()
 {
-  sfContext::getInstance()->getResponse()->addJavascript('/sfMediaLibraryPlugin/js/main', 'last');
+  sfContext::getInstance()->getResponse()->addJavascript('/w3sMediaLibraryPlugin/js/main', 'last');
 
   return javascript_tag('sfMediaLibrary.init(\''.url_for('sfMediaLibrary/choice').'\')');
 }
@@ -45,18 +45,18 @@ function input_asset_tag($name, $value, $options = array())
     }
     else
     {
-      if (!is_file(sfConfig::get('sf_plugins_dir').'/sfMediaLibraryPlugin/web/images/'.$ext.'.png'))
+      if (!is_file(sfConfig::get('sf_plugins_dir').'/w3sMediaLibraryPlugin/web/images/'.$ext.'.png'))
       {
         $ext = 'unknown';
       }
-      $image_path = '/sfMediaLibraryPlugin/images/'.$ext;
+      $image_path = '/w3sMediaLibraryPlugin/images/'.$ext;
     }
     $html .= link_to_function(image_tag($image_path, array('alt' => 'File', 'height' => '64')), "window.open('$value')");
     $html .= '<br />';
   }
 
   $html .= input_tag($name, $value, $options);
-  $html .= '&nbsp;'.image_tag('/sfMediaLibraryPlugin/images/folder_open', array('alt' => __('Insert Image'), 'style' => 'cursor: pointer; vertical-align: middle', 'onclick' => 'sfMediaLibrary.openWindow({ form_name: '.$form_name.', field_name: \''.$name.'\', type: \''.$type.'\', scrollbars: \'yes\' })'));
+  $html .= '&nbsp;'.image_tag('/w3sMediaLibraryPlugin/images/folder_open', array('alt' => __('Insert Image'), 'style' => 'cursor: pointer; vertical-align: middle', 'onclick' => 'sfMediaLibrary.openWindow({ form_name: '.$form_name.', field_name: \''.$name.'\', type: \''.$type.'\', scrollbars: \'yes\' })'));
   $html .= init_media_library();
 
   return $html;

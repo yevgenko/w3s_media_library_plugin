@@ -1,6 +1,6 @@
 = sfMediaLibrary plugin =
 
-The `sfMediaLibraryPlugin` provides an easy-to-use interface to manage web assets (images, PDF documents, Flash objects, and so on). It also provides an extension to tinyMCE so that the media inclusion feature of rich text editors uses the assets uploaded through the plugin's module.
+The `w3sMediaLibraryPlugin` provides an easy-to-use interface to manage web assets (images, PDF documents, Flash objects, and so on). It also provides an extension to tinyMCE so that the media inclusion feature of rich text editors uses the assets uploaded through the plugin's module.
 
 This plug-in consists of:
 
@@ -16,10 +16,10 @@ This plug-in consists of:
 
 To install the plugin for a symfony project, the usual process is to use the symfony command line:
 {{{
-$ php symfony plugin-install http://plugins.symfony-project.com/sfMediaLibraryPlugin
+$ php symfony plugin-install http://plugins.symfony-project.com/w3sMediaLibraryPlugin
 }}}
 
-Alternatively, if you don't have PEAR installed, you can download the latest package attached to this plugin's wiki page and extract it under your project's `plugins/` directory. You will also have to copy the contents of the `myproject/plugins/sfMediaLibraryPlugin/web/` directory into a `myproject/web/sfMediaLibraryPlugin/` directory.
+Alternatively, if you don't have PEAR installed, you can download the latest package attached to this plugin's wiki page and extract it under your project's `plugins/` directory. You will also have to copy the contents of the `myproject/plugins/w3sMediaLibraryPlugin/web/` directory into a `myproject/web/w3sMediaLibraryPlugin/` directory.
 
 Enable the new module in your application, via the `settings.yml` file.
 {{{
